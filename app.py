@@ -26,4 +26,8 @@ def seat(seat):
     return render_template('seats.html', seat=seat)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Only run locally
+    import os
+    if os.environ.get("RAILWAY_ENV") is None:
+        app.run(debug=True)
+
